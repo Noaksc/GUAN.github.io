@@ -1,1 +1,276 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        /* 样式可以根据需要进行修改 */
+        body {
+            background-image: url("greenside2.png");
+            background-size: cover;
+            background-color: #f2f2f2; /* 浅灰色背景 */
+            padding-left: 100px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin-left: 100px; /* 调整内容区域与菜单的间距 */
+        }
+
+        .page-title {
+            text-align: left;
+            padding-top:25px;
+            transform: rotate(-90deg); /* 旋转标题 */
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform-origin: left top;
+            white-space: nowrap; /* 防止文字换行 */
+        }
+		
+		.h3{
+			font-size: 12ps;
+		}
+		.exhibition{
+			padding: 20px;
+			padding-top: 60;
+			margin-top: -150px;
+			margin-left: -200px;
+			font-size: 12px;
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			position: absolute;
+			right: 400px;
+
+			
+		}
+
+        .about-content {
+            padding: 20px;
+            padding-top: 60px; /* 调整关于内容区域上边距 */
+			margin-top: -150px;
+			margin-left: -200px;
+			font-size: 14px;
+			font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			width: 500px;
+			align-content: center;
+			line-height: 1.5;
+			
+			text-underline: left;
+			position: absolute;
+			left: 525px;
+        }
+		
+		
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 10px; /* 菜单的宽度 */
+            border: 1px solid #333;
+            padding: 5px;
+            z-index: 999; /* 确保菜单在顶层 */
+            transform-origin: bottom left; /* 从左下角开始旋转 */
+            transform: rotate(90deg); /* 旋转90度 */
+        }
+
+        .menu {
+            display: flex;
+            list-style: none; /* 移除列表样式 */
+            margin: 10px;
+            padding: 10px;
+            padding-left: 35px; /* 调整菜单内边距 */
+        }
+
+        .menu li {
+            margin-bottom: 10px;/* 菜单项之间的间距 */
+            margin-left: 35px;
+        }
+
+        .menu a {
+            color: #2D2D2D;
+            text-decoration: none;
+        }
+
+        footer{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* 添加线框样式 */
+        .box-small {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black; /* 初始为黑线框 */
+            border-radius: 0px; /* 圆角 */
+            position: fixed;
+            top: 150px;
+            left: 20px;
+            margin-left: 205px;
+            transition: border-radius 1s, background-color 1s; /* 添加过渡效果 */
+        }
+        
+        .box-small:hover {
+            border-color: transparent; /* 鼠标悬停时隐藏边框 */
+            background: radial-gradient(circle, red, orange); /* 添加渐变背景 */
+        }
+
+        .box-medium {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #333;
+            position: fixed;
+            top: calc(50% - 100px); /* 垂直居中 */
+            right: 100px;
+            overflow: hidden;
+        }
+        
+        .circle {
+            width: 50px;
+            height: 50px;
+            border: 0px solid black; /* 将原来的背景色改为边框 */
+            border-radius: 50%;
+            position: absolute; /* 绝对定位相对于父容器 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 将圆心定位在父容器的中心 */
+        }
+		
+		.image-container{
+			justify-content: space-around;
+			bottom:50px;
+			left:calc(30% - 150px);
+			position: absolute; /* 绝对定位 */
+		}
+		
+		.image-container img{
+			width:150px;
+			height:150px;
+			opacity: 0;
+			transition: opacity 0.5s ease-in-out;
+		}
+		
+		.image-container img:hover{
+			opacity: 1;
+		}
+		
+		.scrolling-text{
+			font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+			font-size: 12px;
+			width: 150px;
+			height: auto;
+			overflow: hidden;
+			position: fixed;
+			top: 50%;
+			right: 50px;
+			transform: translateY(-50%);
+			display: flex;
+			justify-content: left;
+			align-items: center;
+		}
+		
+		.text-content{
+			animation: scroll 5s linear infinite;
+			white-space: nowrap;
+		}
+		
+		@keyframes scroll{
+			0%{
+				transform: translateY(0);
+			}
+			100%{
+				transform: translateY(-100%);
+			}
+		}
+		
+    </style>
+</head>
+<body>
+<header>
+    <h1 class="page-title">GUAN</h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="Untitled-1.html">Home</a></li>
+            <li><a href="works.html">Portfolio</a></li>
+            <li><a href="about.html">ME</a></li>
+        </ul>
+    </nav>
+</header>
+	
+
+<section class="about-content">
+    <h3>About Me</h3>
+    <p>Guan is an artist and designer deeply passionate about exploring the connections between space, emotion, philosophy, and the interaction between humans and nature. Through various forms of media, I poetically express observations and reflections on the connections and resistance between individuals and their environments. Currently holding an MFA in Media Art &amp; Installation from the Graduate School of Kyoto Saga University of Art, I am currently based in Tokyo.</p>
+	<p>contact me:　<a href="mailto:Noahkan@outlook.jp">Noahkan@outlook.jp</a> </p>
+</section>
+	
+	<section class="exhibition">
+		<h3>Project/Exhibits</h3>
+		<p>「DIGITAL MOSS: Talked」 Solo Exhibition @Kyoto Saga University of Art, Kyoto</p>
+		<p>「おおい　OVERLAY」      Group Exhibition @Horikawaoike Gallery, Kyoto </p>
+		<p>「Raining pathos」      Solo Exhibition @Horikawaoike Gallery, Kyoto</p>
+		<p>「The 51st Graduation of SAGABI」 @Kyoto City KYOCERA Museum of Art</p>
+		<p>「ART in Kyoto STATION 2022」Group Exhibition @Kyoto station</p><br>
+		<h3>Resume</h3>
+		<p>&nbsp;2022 Volunteer @「ALTERNATIVE ROMAN」Exhibition in Osaka </p>
+		<p>&nbsp;2022 Volunteer @Kyoto International Film and Art Festival</p>
+		<p>&nbsp;2021 Teaching Assistant of WebDesign @Kyoto Saga University of Art</p>
+		<p>&nbsp;2018 Planning Intern @DDB&lpar;China Group GuangZhou office&rpar;</p>
+		<p>&nbsp;2018 AE Intern @Dentsu&lpar;and-c GuangZhou office&rpar;</p>
+	</section>
+
+<footer>
+    <!-- 这里可以添加页脚内容 -->
+    &copy; 2024 GUAN SICHENG </footer>
+
+<!-- 添加线框 -->
+<div class="box-small"></div>
+<div class="box-medium">
+    <div class="circle"></div>
+</div>
+<div class="box-large"></div>
+	
+	<div class="image-container">
+		<img src="ME_ME-1.png" alt="ME-1">
+		<img src="ME_ME-2.png" alt="ME-2">
+		<img src="ME_ME-3.png" alt="ME-3">
+		<img src="ME_ME-4.png" alt="ME-4">
+		<img src="ME_ME-5.png" alt="ME-5">
+	</div>
+	
+	<div class="scrolling-text">
+		<div class="text-content">
+		<p>Do not go gentle into that good night,</p>
+		<p>Old age should burn and rave at close of day;</p>
+		<p>Rage, rage against the dying of the light.</p>
+		</div>
+	
+	</div>
+	
+<script>
+    // 获取小方框元素
+    const boxSmall = document.querySelector('.box-small');
+
+    // 监听鼠标触摸事件
+    boxSmall.addEventListener('mouseenter', () => {
+        // 将小方框变成圆形
+        boxSmall.style.borderRadius = '50%';
+    });
+
+    // 监听鼠标移出事件
+    boxSmall.addEventListener('mouseleave', () => {
+        // 将圆形变回原来的方框
+        boxSmall.style.borderRadius = '0';
+    });
+</script>
+
+</body>
+</html>
