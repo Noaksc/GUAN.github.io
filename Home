@@ -1,1 +1,203 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+			background-image: url("greensideball.png");
+			background-size: cover;
+			background-position: center;
+            background-color: #f2f2f2; /* 浅灰色背景 */
+            margin: 0; /* 清除默认的外边距 */
+            padding: 0; /* 清除默认的内边距 */
+            font-family: Arial, sans-serif; /* 设置字体 */
+        }
+		
+		.tittle{
+			
+			
+		}
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+			margin-top: 20px;
+        }
+
+        .intro {
+            text-align: left;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .intro h1 {
+            margin: 0;
+        }
+
+        .intro p {
+            margin: 5px 0; /* 上下边距为 5px，左右为 0 */
+        }
+
+        .interactive-square {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            position: relative;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto; /* 居中 */
+			transform: box-shadow 1s;
+        }
+		
+		.interactive-square:hover{
+			box-shadow: 0 0 2000px 100px orange;
+		}
+
+        .menu {
+            list-style-type: none;
+            padding-left: 15px;
+			padding-bottom: 20px;
+            margin: 5px;
+            width: 5px;
+            position: absolute;
+        }
+
+        .menu li {
+            margin: 5px;
+            padding: auto;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            padding: 5px;
+			
+            transition: color 0.3s, font-weight 0.3s; /* 添加过渡效果 */
+			font-weight: bold;
+        }
+
+        .menu a:hover {
+            transform: translateY(-5px);
+            color: orange; /* 悬停时字体颜色变为橙色 */
+ /* 悬停时字体加粗 */
+        }
+
+        /* 将菜单定位到四个角 */
+        .menu li:nth-child(1) { /* Home */
+            top: -30px;
+            left: calc(50% - 40px);
+        }
+
+        .menu li:nth-child(2) { /* Works */
+            top: calc(50% - 40px);
+            left: -30px;
+        }
+
+        .menu li:nth-child(3) { /* About */
+            top: calc(50% - 40px);
+            right: -30px;
+        }
+
+        .menu li:nth-child(4) { /* Contact */
+            display: none; /* 隐藏联系页面链接 */
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 50px; /* 调整底部间距 */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+
+        .scrolling-text {
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+            padding: 15px;
+            position: fixed;
+            bottom: 50px; /* 上移文本位置 */
+            left: 15px; /* 调整文本左右位置 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="intro">
+            <h1>GUAN SICHENG&nbsp;</h1>
+            <p>Hi! I'm interested in space, philosophy, and the influence of nature on people, and I research, experiment, and create these things.</p>
+            <p>こんにちは。空間や哲学、自然が人々に与える影響に興味を持ち、それらを研究、実験、制作している。</p>
+        </section>
+
+        <div class="interactive-square">
+            <nav>
+                <ul class="menu">
+                    <li><a href="Untitled-1.html">Home</a></li>
+                    <li><a href="works.html" onclick="moveElements()">Portfolio</a></li>
+                    <li><a href="ME.html">ME</a></li>
+                    <!-- 删除了联系页面的链接 -->
+                </ul>
+            </nav>
+        </div> <!-- 交互式正方形 -->
+    </div>
+
+    <div class="scrolling-text"></div>
+
+    <script>
+        const square = document.querySelector('.interactive-square');
+
+        square.addEventListener('mouseenter', () => {
+            square.style.transition = 'border-radius 0.5s ease';
+            setTimeout(() => {
+                square.style.borderRadius = '50%';
+            }, 50);
+        });
+
+        square.addEventListener('mouseleave', () => {
+            square.style.transition = 'border-radius 0.5s ease';
+            setTimeout(() => {
+                square.style.borderRadius = '0%';
+            }, 50);
+        });
+
+        const textWrapper = document.querySelector('.scrolling-text');
+        const textArray = ['an information designer','Media Artist', 'Bryophyte Lover', 'Life Explorer', 'Cloud Collector', 'Naturalist', 'Penguin'];
+        let index = 0;
+
+        function updateText() {
+            textWrapper.textContent = `I AM  ${textArray[index]}`;
+            index = (index + 1) % textArray.length;
+        }
+
+        setInterval(updateText, 1500);
+
+        function moveElements() {
+            const container = document.querySelector('.container');
+            const square = document.querySelector('.interactive-square');
+
+            container.style.transition = 'transform 1s ease';
+            square.style.transition = 'transform 1s ease';
+
+            container.style.transform = 'translateX(-100%)';
+            square.style.transform = 'translateX(-100%)';
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
